@@ -26,15 +26,12 @@ const App = () => {
 
   const addExpenseHandler = (addedExpense) => {
     console.log("From App.js", addedExpense);
-    const newExpenses = [
-      ...expenses,
-      addedExpense,
-    ]
+    const newExpenses = [...expenses, addedExpense];
 
     setExpenses(newExpenses);
 
     console.log("From App.js", newExpenses);
-  }
+  };
 
   return (
     <div className="App">
@@ -42,6 +39,6 @@ const App = () => {
       <Expenses expenses={expenses} />
     </div>
   );
-}
+};
 
 export default App;
