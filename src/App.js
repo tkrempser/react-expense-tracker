@@ -25,12 +25,11 @@ const App = () => {
   ]);
 
   const addExpenseHandler = (addedExpense) => {
-    console.log("From App.js", addedExpense);
-    const newExpenses = [...expenses, addedExpense];
+    addedExpense["id"] = Math.random();
 
-    setExpenses(newExpenses);
-
-    console.log("From App.js", newExpenses);
+    setExpenses((prevExpenses) => {
+      return [addedExpense, ...prevExpenses];
+    });
   };
 
   return (

@@ -7,15 +7,21 @@ import { useState } from "react";
 const Expenses = (props) => {
   const [selectedYear, setSelectedYear] = useState("2021");
 
-  const selectYearHandler = (selectedYear) => {
-    setSelectedYear(selectedYear);
-    console.log(selectedYear);
+  const selectYearHandler = (selectedYearFromChild) => {
+    setSelectedYear(selectedYearFromChild);
   };
+
+  const filteredExpenses = props.expenses.filter((item) => {
+    return item.date.getFullYear().toString() === selectedYear;
+  });
 
   return (
     <Card className="expenses">
-      <ExpenseFilter onSelectYear={selectYearHandler} selectedYear={selectedYear} />
-      {props.expenses.map((item) => (
+      <ExpenseFilter
+        onSelectYear={selectYearHandler}
+        selectedYear={selectedYear}
+      />
+      {filteredExpenses.map((item) => (
         <ExpenseItem
           key={item.id}
           amount={item.amount}
