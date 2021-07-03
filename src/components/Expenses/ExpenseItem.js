@@ -8,17 +8,19 @@ const ExpenseItem = (props) => {
 
   const clickHandler = () => {
     setTitle("Updated");
-  }
+  };
 
   return (
     <Card className="expense-item">
       <div className="expense-item__description">
         <ExpenseDate date={props.date} />
         <h2>{title}</h2>
-        <div className="expense-item__price" onClick={clickHandler}>${props.amount}</div>
+        <div className="expense-item__price" onClick={clickHandler}>
+          ${props.amount}
+        </div>
       </div>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;

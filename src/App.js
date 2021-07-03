@@ -25,7 +25,7 @@ const App = () => {
   ]);
 
   const addExpenseHandler = (addedExpense) => {
-    addedExpense["id"] = Math.random();
+    addedExpense["id"] = Math.random(); // TODO: Improve id assignment
 
     setExpenses((prevExpenses) => {
       return [addedExpense, ...prevExpenses];
