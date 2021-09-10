@@ -34,8 +34,6 @@ const ExpenseForm = (props) => {
       title: enteredTitle,
     };
 
-    console.log(expenseData);
-
     props.onAddExpense(expenseData);
 
     setEnteredDate("");
