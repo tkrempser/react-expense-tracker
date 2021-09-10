@@ -1,5 +1,6 @@
-import "./ExpenseForm.css";
 import { useState } from "react";
+
+import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
