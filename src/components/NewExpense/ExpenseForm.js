@@ -19,14 +19,22 @@ const ExpenseForm = (props) => {
     setEnteredDate(event.target.value);
   };
 
+  const timezoneDateTransform = (stringDate) => {
+    let date = new Date(stringDate);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    return date;
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
 
     const expenseData = {
-      date: new Date(enteredDate),
+      date: timezoneDateTransform(enteredDate),
       amount: +enteredAmount,
       title: enteredTitle,
     };
+
+    console.log(expenseData);
 
     props.onAddExpense(expenseData);
 
