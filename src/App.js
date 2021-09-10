@@ -1,6 +1,8 @@
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-import { useState } from "react";
 
 const App = () => {
   const [expenses, setExpenses] = useState([
@@ -25,7 +27,7 @@ const App = () => {
   ]);
 
   const addExpenseHandler = (addedExpense) => {
-    addedExpense["id"] = Math.random(); // TODO: Improve id assignment
+    addedExpense["id"] = uuidv4();
 
     setExpenses((prevExpenses) => {
       return [addedExpense, ...prevExpenses];
